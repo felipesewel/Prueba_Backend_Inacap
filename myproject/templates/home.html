@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <h2>Bienvenido, {{ user.username }}!</h2>
+ <p>Tu rol es: {{ user.userdetails.rol }}</p>
+ <a href="{% url 'user_edit' %}" class="btn btn-primary">Editar perfil</a>
+ <a href="{% url 'logout' %}" class="btn btn-secondary">Cerrar sesión</a>
+ {% if user.userdetails.rol == 'admin' %}
+   <a href="{% url 'user_list' %}" class="btn btn-info">Lista de usuarios</a>
+ {% endif %}
+{% endblock %}
