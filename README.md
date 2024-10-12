@@ -6,7 +6,7 @@ INTRUCCIONES:
 1)Activar entorno virtual
 2)cambiar a la carpeta myproject
 3)python manage.py runserver
-4)utilizar el enlace entregado en el navegador
+4)utilizar el enlace entregado en el navegador (por su defecto utilizar el "/login"
 5)Registrar un usuario
 6)iniciar sesion con el usuario creado
 7)utilizar todas la funciones de la página (cabe destacar que la funcion de libros se encuentra en el navbar "Lista de Libros")
