@@ -12,22 +12,21 @@ from .forms import BookForm
 from .models import Review
 from .forms import ReviewForm
 
-
 def login_view(request):
-   if request.method == 'POST':
-       form = LoginForm(request.POST)
-       if form.is_valid():
-           username = form.cleaned_data['username']
-           password = form.cleaned_data['password']
-           user = authenticate(username=username, password=password)
-           if user:
-               login(request, user)
-               return redirect('home')
-           else:
-               messages.error(request, 'Invalid username or password')
-   else:
-       form = LoginForm()
-   return render(request, 'login.html', {'form': form})
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user:
+                login(request, user)
+                return redirect('home')  # Redirige a la página 'home' tras iniciar sesión
+            else:
+                messages.error(request, 'Invalid username or password')
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
 
 @login_required
 def logout_view(request):
