@@ -24,9 +24,10 @@ from miapp.views import book_list, book_create, book_update, book_delete, review
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: redirect('login'), name='home'),
+    path('', lambda request: redirect('login'), name='home'),  # Redirige a login inicialmente
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
+    path('home/', views.home, name='home'),  # La página home a la que se redirige tras login exitoso
     path('user/list/', views.user_list, name='user_list'),
     path('user/edit/', views.user_edit, name='user_edit'),
     path('user/<int:user_id>/edit/', views.user_edit, name='user_edit'),
