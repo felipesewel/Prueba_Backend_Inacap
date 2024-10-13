@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.shortcuts import redirect
 from django.contrib.auth import views as auth_views
 from miapp import views
 from miapp.views import book_list, book_create, book_update, book_delete, review_create, review_delete
@@ -23,7 +24,7 @@ from miapp.views import book_list, book_create, book_update, book_delete, review
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('', lambda request: redirect('login'), name='home'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('user/list/', views.user_list, name='user_list'),
